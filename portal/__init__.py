@@ -1,4 +1,4 @@
-# app/__init__.py
+# portal/__init__.py
 
 """Starlette stuff
 

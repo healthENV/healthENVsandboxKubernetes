@@ -9,15 +9,15 @@ services:
     ports:
       - "1080:80"
     volumes:
-      - ./app:/app
       - ./dockerfiles_users:/dockerfiles_users
       - ./ipc:/ipc
       - ./logs:/logs
-    working_dir: /app
+      - ./portal:/portal
+    working_dir: /portal
     networks:
-      - app-network
+      - portal-network
     command: >
-      sh -c "uvicorn httapp:app --reload --host 0.0.0.0 --port 80"
+      sh -c "uvicorn app:app --reload --host 0.0.0.0 --port 80"
     # TODO: Need to find a graceful way to close down univorn. Perhaps with Gunvicon running
 
   launcher:
@@ -33,7 +33,7 @@ services:
       - ./logs:/logs
     working_dir: /launcher
     networks:
-      - app-network
+      - portal-network
 #      - envNetwork
     # Need a prolonged grace stop period (normally 10 seconds) as otherwise the sibling containers to get closed in time
     stop_grace_period: 1m
@@ -55,13 +55,13 @@ services:
 #    volumes:
 #      - ./nginx-conf:/etc/nginx/conf.d
 #    networks:
-#      - app-network
+#      - portal-network
 #      - nginx-network
 #      - envNetwork
 
 
 networks:
-  app-network:
+  portal-network:
     driver: bridge
 #  nginx-network:
 #    external: true

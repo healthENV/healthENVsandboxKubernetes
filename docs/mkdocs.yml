@@ -11,7 +11,7 @@ nav:
   - reference.md
   - explanation.md
   - Portal modules:
-    - app.md
+    - portal.md
     - translate.md
   - Launcher modules:
     - launcher.md
@@ -22,7 +22,7 @@ theme:
 plugins:
 - mkdocstrings:
     watch:
-      - ../app
+      - ../portal
       - ../launcher
     handlers:
       python:

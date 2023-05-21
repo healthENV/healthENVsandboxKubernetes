@@ -1,3 +1,0 @@
-# Starlette app
-
-::: app
