@@ -11,7 +11,7 @@ __pycache__/
 *.so
 
 # Log files
-# logs/
+logs/
 
 # Distribution / packaging
 .Python
